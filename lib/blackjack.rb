@@ -44,6 +44,7 @@ end
 
 def invalid_command
   puts "Please enter a valid command"
+  hit?(card_total)
 end
 
 #####################################################
@@ -52,10 +53,10 @@ end
 
 def runner
   welcome
-  total = initial_round
-  until total > 21
-    hit?(total)
-    display_card_total(total)
+  card_sum = initial_round
+  until card_sum > 21
+    card_sum = hit?(card_sum)
+    display_card_total(card_sum)
   end
-  end_game(total)
+  end_game(card_sum)
 end
